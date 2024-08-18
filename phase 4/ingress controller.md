@@ -1,13 +1,13 @@
 1. **Create a file named blogify-deployment.yaml**   #already created
-   - kubectl apply -f blogify-deployment.yaml
+   ```- kubectl apply -f blogify-deployment.yaml```
 2. **Create a file named blogify-service.yaml**       #already created
-   - kubectl apply -f blogify-service.yaml
+   ```- kubectl apply -f blogify-service.yaml```
 3. **Install the NGINX Ingress Controller:**
-    - kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/cloud/deploy.yaml
+   ``` - kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/cloud/deploy.yaml```
 
 4. **Create the Ingress resource named blogify-ingress.yaml**
 
------
+```-----
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -26,15 +26,16 @@ spec:
             name: blogify-service
             port: 
               number: 8000
- ---         
-Apply it using - kubectl apply -f blogify-ingress.yaml
+ ---
+   ```   
+Apply it using - ```kubectl apply -f blogify-ingress.yaml```
 
 5. **commands to check your ingress**
-    
+    ```
     - kubectl get deployments
     - kubectl get services
     - kubectl get ingress -A
-    - kubectl get services -n ingress-nginx
+    - kubectl get services -n ingress-nginx```
 
 Look for the ingress-nginx-controller service's EXTERNAL-IP.
 You should now be able to access your application using this IP or hostname:
