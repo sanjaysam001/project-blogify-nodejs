@@ -22,12 +22,12 @@
 
 5. Configure Jenkins VM:
 
-     Name: jenkins-vm
-     Region: Choose nearest to you
-     Machine type: e2-medium (2 vCPU, 4 GB memory)
-     Boot disk: Ubuntu 22.04 LTS
-     persistent disk: 40GB
-     Allow HTTP and HTTPS traffic
+    - Name: jenkins-vm
+    - Region: Choose nearest to you
+    - Machine type: e2-medium (2 vCPU, 4 GB memory)
+    - Boot disk: Ubuntu 22.04 LTS
+    - persistent disk: 40GB
+    - Allow HTTP and HTTPS traffic
      Click "Create"
 
 
