@@ -1,7 +1,6 @@
 **Installing prometheus and grafana using helm**
-     Installs the kube-prometheus stack, a collection of Kubernetes manifests, Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.
 
-     See the kube-prometheus README for details about components, dashboards, and alerts.
+Installs the kube-prometheus stack, a collection of Kubernetes manifests, Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.See the kube-prometheus README for details about components, dashboards, and alerts.
 
 Note: This chart was formerly named prometheus-operator chart, now renamed to more clearly reflect that it installs the kube-prometheus project stack, within which Prometheus Operator is only one component.
 
@@ -10,24 +9,34 @@ Note: This chart was formerly named prometheus-operator chart, now renamed to mo
 2. Helm 3+
 
 Get Helm Repository Info
-   
-   - helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-   - helm repo update
+   ```
+    - helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+    - helm repo update
+   ```
+                        
 
 create a seperate namespace for better structure of code
-   - kubectl create namespace monitoring
+  ```
+    - kubectl create namespace monitoring
+  ```
 
 Install Helm Chart
-   - helm install [RELEASE_NAME] prometheus-community/kube-prometheus-stack  -n monitoring  
+  ``` 
+  - helm install [RELEASE_NAME] prometheus-community/kube-prometheus-stack  -n monitoring
+``` 
 
 
 Uninstall Helm Chart
-   - helm uninstall [RELEASE_NAME] prometheus-community/kube-prometheus-stack -n monitoring  #if you want to uninstall
+  ```
+      - helm uninstall [RELEASE_NAME] prometheus-community/kube-prometheus-stack -n monitoring 
+  ```
 
 
 Now , expose your grafana service to access it from your browser by changing the type to "LoadBalancer"
    
-   - kubectl patch service grafana -p '{"spec": {"type": "LoadBalancer"}}'
+  ```
+     - kubectl patch service grafana -p '{"spec": {"type": "LoadBalancer"}}'
+  ```
 
  you will get an external ip , use it to access the grafana console using the web browser. 
 
@@ -37,8 +46,10 @@ Now , expose your grafana service to access it from your browser by changing the
    - password = prom-operator
 
  Generate password if wrong:
-
-   - kubectl get secret grafana-admin-password -o jsonpath="{.data.admin-password}" | base64 --decode
+```
+   - kubectl get secret grafana-admin-password -o jsonpath="{.data.admin-password}" | base64 -- 
+    decode
+ ```
 
 **Add Prometheus as a Data Source:**
 
