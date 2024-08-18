@@ -28,7 +28,7 @@
     - Boot disk: Ubuntu 22.04 LTS
     - persistent disk: 40GB
     - Allow HTTP and HTTPS traffic
-     Click "Create"
+    - Click "Create"
 
 
 6. Configure SonarQube VM:
